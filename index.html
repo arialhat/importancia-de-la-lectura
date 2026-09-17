@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lectura Interactiva</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <nav class="navbar">
+
+    <div class="logo">
+        📚 Lectura Interactiva
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="#cursos">Cursos</a>
+       <a href="#progreso">Mi progreso</a>
+    </div>
+
+</nav>
+
+    <header>
+        <h1>📚 Lectura Interactiva</h1>
+        <p>Aprende • Lee • Piensa • Crece</p>
+    </header>
+
+    <main>
+
+        <section class="bienvenida">
+            <h2>📚 Mis cursos</h2>
+
+            <p>
+                Aprende a través de diferentes cursos y desarrolla
+                nuevas habilidades.
+            </p>
+        </section>
+
+<section class="progreso" id="progreso"></section>
+
+    <h2>📊 Mi progreso</h2>
+
+    <p>Tu avance en los cursos aparecerá aquí.</p>
+
+    <div class="barra-progreso">
+        <div class="progreso-actual"></div>
+    </div>
+
+    <p id="texto-progreso"><strong>0% completado</strong></p>
+<p id="mensaje-final"></p>
+</section>
+        <section class="cursos" id="cursos"></section>
+
+            <!-- CURSO 1 -->
+
+            <article class="curso">
+
+                <div class="icono">
+                    📖
+                </div>
+
+                <h2>Leer para crecer</h2>
+
+                <h3>El poder de los libros en tu vida</h3>
+
+                <p>
+                    Descubre cómo la lectura puede ayudarte a comprender,
+                    aprender y desarrollar nuevas ideas.
+                </p>
+
+                <p class="nivel">
+                    🟢 Nivel básico
+                </p>
+
+                <p>
+                    🎬 1 lección + cuestionario
+                </p>
+<p id="estado-curso1">🔒 Curso no completado</p>
+           <button id="boton-curso1" onclick="window.location.href='curso1.html'">
+    Comenzar curso →
+</button>
+
+            </article>
+
+
+            <!-- CURSO 2 -->
+
+            <article class="curso">
+
+                <div class="icono">
+                    🧠
+                </div>
+
+                <h2>Pensamiento crítico</h2>
+
+                <p>
+                    Aprende a analizar información, cuestionar ideas
+                    y formar tus propias conclusiones.
+                </p>
+<p class="nivel">🟡 Nivel intermedio</p>
+<p id="estado-curso2">🔒 Curso no completado</p>
+               <button id="boton-curso1" onclick="window.location.href='curso1.html'">
+    Comenzar curso →
+</button>
+
+            </article>
+
+
+            <!-- CURSO 3 -->
+
+            <article class="curso">
+    <div class="icono">🔎</div>
+
+    <h2>El arte de investigar</h2>
+
+    <p>
+        Aprende a buscar información, analizar evidencias
+        y reconocer fuentes confiables.
+    </p>
+<p class="nivel">🟠 Nivel avanzado</p>
+    <p id="estado-curso3">🔒 Curso no completado</p>
+
+    <button onclick="window.location.href='curso3.html'">
+        Comenzar curso →
+    </button>
+</article>
+
+            </article>
+
+
+            <!-- CURSO 4 -->
+
+           <article class="curso">
+    <div class="icono">💡</div>
+
+    <h2>Comunicación y expresión</h2>
+
+    <p>
+        Aprende a expresar tus ideas de manera clara,
+        organizada y efectiva.
+    </p>
+
+    <p class="nivel">🔴 Nivel experto</p>
+
+    <p id="estado-curso4">🔒 Curso no completado</p>
+
+    <button onclick="window.location.href='curso4.html'">
+        Comenzar curso →
+    </button>
+</article>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Lectura Interactiva</p>
+    </footer>
+<script>
+let cursosCompletados = 0;
+
+if (localStorage.getItem("curso1Completado") === "true") {
+    cursosCompletados++;
+
+    document.getElementById("estado-curso1").innerHTML =
+        "✅ Curso completado";
+
+    document.getElementById("boton-curso1").textContent =
+        "✅ Curso completado";
+}
+
+if (localStorage.getItem("curso2Completado") === "true") {
+    cursosCompletados++;
+
+    document.getElementById("estado-curso2").innerHTML =
+        "✅ Curso completado";
+
+    document.getElementById("boton-curso2").textContent =
+        "✅ Curso completado";
+}
+
+if (localStorage.getItem("curso3Completado") === "true") {
+    cursosCompletados++;
+
+    document.getElementById("estado-curso3").innerHTML =
+        "✅ Curso completado";
+
+    document.getElementById("boton-curso3").textContent =
+        "✅ Curso completado";
+}
+
+if (localStorage.getItem("curso4Completado") === "true") {
+    cursosCompletados++;
+
+    document.getElementById("estado-curso4").innerHTML =
+        "✅ Curso completado";
+
+    document.getElementById("boton-curso4").textContent =
+        "✅ Curso completado";
+}
+
+let porcentajeProgreso = cursosCompletados * 25;
+
+document.querySelector(".progreso-actual").style.width =
+    porcentajeProgreso + "%";
+
+document.getElementById("texto-progreso").innerHTML =
+    "<strong>" + cursosCompletados +
+    " de 4 cursos completados — " +
+    porcentajeProgreso + "%</strong>";
+
+if (porcentajeProgreso === 100) {
+    document.getElementById("mensaje-final").innerHTML =
+        "🏆 ¡Felicidades! Has completado todos los cursos.";
+}
+</script>
+</body>
+
+</html>
